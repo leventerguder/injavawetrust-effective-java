@@ -4,6 +4,9 @@ public class Item05Notes {
 
 }
 
+// ####
+// Prefer dependency injection to hardwriring resources
+
 // Many classes depend on one or more underlying resources.
 
 // Neither of these approaches is satisfactory , because they assume that there is only one dictionary worth using.
