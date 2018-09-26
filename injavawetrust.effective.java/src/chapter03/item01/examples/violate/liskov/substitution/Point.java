@@ -18,13 +18,13 @@ public class Point {
 	// still needs to function as one, but it fails to do so if you take this
 	// approach!
 
-//	@Override
-//	public boolean equals(Object o) {
-//		if (o == null || o.getClass() != getClass())
-//			return false;
-//		Point p = (Point) o;
-//		return p.x == x && p.y == y;
-//	}
+	@Override
+	public boolean equals(Object o) {
+		if (o == null || o.getClass() != getClass())
+			return false;
+		Point p = (Point) o;
+		return p.x == x && p.y == y;
+	}
 
 	public int getX() {
 		return x;
