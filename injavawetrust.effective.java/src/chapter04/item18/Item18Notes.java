@@ -39,7 +39,16 @@ public class Item18Notes {
 	// expose implementation details.
 	// The resulting API ties you to the original implementation , forever limitin
 	// the performance of your class.
+
+	// To summarize , inheritance is powerful, but it is problematic because it
+	// violates encapsulation.
+	// It is appropriate only when a genuine subtype relationship exists between the
+	// subclass and superclass.
+	// Even then , inheritance may lead to fragility if the subclass is in a
+	// different package from the superclass and the super class is not designed for
+	// inheritance.
 	
-	// To summarize , inheritance is poewerful, but it is problematic because it violates encapsulation.
-	// It is appropriate only when a genuine subtype relationship exists between the subclass and superclass.
+	// To avoid this fragility use composition and forwarding instead of inheritance
+	// especially an appropriate interface to implement a wrapper class exists.
+	// Not only are wrapper classes more robust than subclasses they are also more powerful.
 }
