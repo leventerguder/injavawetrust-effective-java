@@ -40,8 +40,7 @@ public class Test01 {
 		// implementation details of the existing class.
 		// Even adding new methods to the existing class will have no impact on the new
 		// class.
-		
-		//
+
 
 	}
 }
