@@ -111,7 +111,23 @@ public class Item19Notes {
 
 	// The best solution to this problem is to prohibit subclassing in classes that
 	// are not designed and documented to be safely subclassed
-	
-	//
+
+	// There are two ways to prohibit subclassing.
+	// - declare the class final
+	// - make all constructors private
+
+	// In summary , designing a class for inheritance is hard work. You must
+	// document all of its self-use patterns, and once you have documented them you
+	// must commit to them for lthe life of the class
+
+	// if you fail to do this , subclass may become dependent on implementation
+	// details of the superclass and may break
+	// if the implementation of the superclass changes.
+	// To allow others to write efficient subclasses you may also have to export one
+	// or more protected methods.
+
+	// Unless you know there is a real need for subclasses you are probably better
+	// off prohibiting inheritance by declaring your class final or ensuring thaat
+	// there are no accessible constructors
 
 }
