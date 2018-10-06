@@ -1,5 +1,6 @@
-package chapter04.item23.examples;
+package chapter04.item23.examples.tagged;
 
+// Tagged class - vastly inferior to a class hierarchy
 public class Figure {
 
 	enum Shape {
