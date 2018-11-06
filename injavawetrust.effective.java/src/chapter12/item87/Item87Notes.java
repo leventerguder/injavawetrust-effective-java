@@ -5,6 +5,14 @@ public class Item87Notes {
 	// #####
 	// Item 87: Consider using a custom serialized form
 
+	/*
+	 * if the class implements Serializable and uses the default serialized form,
+	 * you’ll never be able to escape completely from the throwaway implementation.
+	 * It will dictate the serialized form forever. This is not just a theoretical
+	 * problem. It happened to several classes in the Java libraries, including
+	 * BigInteger
+	 */
+
 	// ## Do not accept the default serialized form without first considering
 	// whether it is appropriate.
 
