@@ -12,6 +12,10 @@ public class Test1 {
 		deserialize(bomb());
 	}
 
+	// you can easily mount a denial-of-service attack by
+	// causing the deserialization of a short stream that requires a long time to
+	// deserialize. Such streams are known as deserialization bombs
+
 	static byte[] bomb() {
 		Set<Object> root = new HashSet<>();
 		Set<Object> s1 = root;

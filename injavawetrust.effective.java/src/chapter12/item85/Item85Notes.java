@@ -19,6 +19,9 @@ public class Item85Notes {
 	// A fundamental problem with serialization is that its attack surface is too
 	// big to protect, and constantly growing: Object graphs are deserialized by
 	// invoking the readObject method on an ObjectInputStream
+	// This method is essentially a magic constructor that can be made to
+	// instantiate objects of almost any type on the class path, so long as the type
+	// implements the Serializable interface.
 
 	// The attack surface includes classes in the Java platform libraries, in third-
 	// party libraries such as Apache Commons Collections, and in the application
