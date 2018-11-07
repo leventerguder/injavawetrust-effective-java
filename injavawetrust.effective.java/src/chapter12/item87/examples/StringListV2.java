@@ -7,8 +7,8 @@ import java.io.Serializable;
 
 // StringList with a reasonable custom serialized form
 public final class StringListV2 implements Serializable {
-	private int size = 0;
-	private Entry head = null;
+	private transient int size = 0;
+	private transient Entry head = null;
 
 	// No longer Serializable!
 	private static class Entry {

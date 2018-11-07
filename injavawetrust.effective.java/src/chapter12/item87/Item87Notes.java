@@ -15,6 +15,9 @@ public class Item87Notes {
 
 	// ## Do not accept the default serialized form without first considering
 	// whether it is appropriate.
+	// Generally speaking, you should accept the default serialized form only if it
+	// is largely identical to the encoding that you would choose if you were
+	// designing a custom serialized form.
 
 	// Accepting the default serialized form should be a conscious decision that
 	// this encoding is reasonable from the standpoint of flexibility, performance,
@@ -32,15 +35,34 @@ public class Item87Notes {
 	// - It permanently ties the exported API to the current internal
 	// representation.
 	// - It can consume excessive space.
+	/*
+	 * the serialized form(StringList.java) unnecessarily represents each entry in
+	 * the linked list and all the links. These entries and links are mere
+	 * implementation details, not worthy of inclusion in the serialized form.
+	 * Because the serialized form is excessively large, writing it to disk or
+	 * sending it across the network will be excessively slow.
+	 */
 	// - It can consume excessive time
+	/*
+	 * The serialization logic has no knowledge of the topology of the object graph,
+	 * so it must go through an expensive graph traversal. In the example
+	 * (StringList.java), it would be sufficient simply to follow the next
+	 * references.
+	 */
 	// - It can cause stack overflows.
+
+	// accepting the default serialized form for a hash table would constitute a
+	// serious bug. Serializing and deserializing the hash table could yield an
+	// object whose invariants were seriously corrupt.
 
 	// Whether or not you accept the default serialized form, every instance field
 	// that isn’t labeled transient will be serialized when the defaultWriteObject
 	// method is invoked.
 
-	// Before deciding to make a field nontransient, convince yourself that its
+	// ## Before deciding to make a field nontransient, convince yourself that its
 	// value is part of the logical state of the object.
+	// If you use a custom serialized form, most or all of the instance fields
+	// should be labeled transient, as in the StringListV2.java
 
 	// If you are using the default serialized form and you have labeled one or more
 	// fields transient, remember that these fields will be initialized to their
@@ -51,6 +73,24 @@ public class Item87Notes {
 	// If you put synchronization in the writeObject method, you must ensure that it
 	// adheres to the same lock-ordering constraints as other activities, or you
 	// risk a resource-ordering deadlock [Goetz06, 10.1.5].
+
+	/*
+	 * If these values are unacceptable for any transient fields, you must provide a
+	 * readObject method that invokes the defaultReadObject method and then restores
+	 * transient fields to acceptable values (Item 88).
+	 */
+
+	/*
+	 * ### Whether or not you use the default serialized form, you must impose any
+	 * synchronization on object serialization that you would impose on any other
+	 * method that reads the entire state of the object
+	 */
+
+	/*
+	 * if you have a thread-safe object (Item 82) that achieves its thread safety by
+	 * synchronizing every method and you elect to use the default serialized form,
+	 * use the following write-Object method
+	 */
 
 	// Regardless of what serialized form you choose, declare an explicit serial
 	// version UID in every serializable class you write. This eliminates the serial
